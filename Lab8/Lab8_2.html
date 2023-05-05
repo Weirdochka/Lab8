@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Хазиахметов Дамир задание 2</title>
+    <meta charset="utf-8">
+</head>
+<body style="background-color:#a7c8f0">
+    <p style="margin-left:500px; font-weight:bold">База содержит результаты централизлованного Тестирования</p>
+    <hr>
+    <table style="position:fixed; margin-left:500px">
+        <tr><td style="font-weight:bold">Серия паспорта</td><td> <input id="1" type="text" placeholder="Введите серию" maxlength="4" /> </td><td><span id="e1"  class="error1" style="display:none;color:red">Пожалуйста, заполните это поле.</span></td> </tr>
+        <tr><td style="font-weight:bold">Номер паспорта</td><td> <input id="2" type="text" placeholder="Введите номер" maxlength="7" /> </td><td><span id="e2" class="error1" style="display:none;color:red">Пожалуйста, заполните это поле.</span></td></tr>
+        <tr><td style="font-weight:bold">Номер бланка</td><td> <input id="3" type="text" placeholder="Введите номер" maxlength="7" /> </td><td><span id="e3" class="error1" style="display:none;color:red">Пожалуйста, заполните это поле.</span></td></tr>
+        <tr>
+            <td style="font-weight:bold">Предмет</td>
+            <td>
+                <select id="sel">
+                    <option id="predmet" disabled selected hidden>Выберите предмет</option>
+                    <option id="mat">Математика</option>
+                    <option id="fiz">Физика</option>
+                </select>
+                </td>
+            <td>
+                <span id="e4" class="error1" style="display:none;color:rgb(197, 28, 28)">Выберите предмет.</span>
+            </td>
+        </tr>
+
+        <tr><td></td><td><img id="sezam" src="Capcha.jpg" width="150" height="70"></td></tr>
+        <tr><td style="font-weight:bold">Код на картинке</td><td> <input id="5" maxlength="6" type="text" placeholder="Введите код" /> </td><td><span id="e5" class="error1" style="display:none;color:red">Заполните это поле.</span></td></tr>
+        <tr><td> </td><td> <input type="button" value="Найти" onclick="DATA()" /> </td></tr>
+
+
+    </table>
+    <script>
+        function DATA() {
+            var a = document.getElementById('1').value;
+            var am = document.getElementById('e1');
+
+            var b = document.getElementById('2').value;
+            var bm = document.getElementById('e2');
+
+            var c = document.getElementById('3').value;
+            var cm = document.getElementById('e3');
+
+            var d = document.getElementById('5').value;
+            var dm = document.getElementById('e5');
+
+            var e = document.getElementById('predmet').value;
+            let eo = document.getElementById("sel").value;
+            var em = document.getElementById('e4');
+
+            var t = document.getElementById('sezam');
+            var tid = t.getAttribute('id');
+
+            if (isNaN(a || b || c || d)) {
+                alert("В поля вводятся числовые значения!");
+                return false;
+            }
+
+
+            if (a == null || a == "") {
+                am.style.display = 'block';
+                return false;
+            } else if (a.length < 4) {
+                alert("В поле серия паспорта должно быть 4 цифры!");
+                return false;
+            }
+
+            if (b == null || b == "") {
+                bm.style.display = 'block';
+                return false;
+            } else if (b.length < 7) {
+                alert("В поле номера паспорта должно быть 7 цифр!");
+                return false;
+            }
+
+            if (c == null || c == "") {
+                cm.style.display = 'block';
+                return false;
+            } else if (c.length < 7) {
+                alert("В поле номера бланка должно быть 7 цифр!");
+                return false;
+            }
+
+            if (eo == e) {
+                em.style.display = 'block';
+                return false;
+            }
+
+            if (d == null || d == "") {
+                dm.style.display = 'block';
+                return false;
+            } 
+           
+
+            if (d != tid) {
+                alert("Вы ввели неправильное значение с картинки!");
+                return false;
+            }
+        // не понял что коенкретно должна делать кнопка. она просто выводить все значения из полей в консоль
+            console.log("Серия паспорта: " + a + "<br>");
+            console.log("Номер паспорта паспорта: " + b + "<br>");
+            console.log("Номер бланка: " + c + "<br>");
+            console.log("Номер бланка: " + eo + "<br>");
+            console.log("Код на картинке: " + d + "<br>");
+
+            
+        }
+    </script>
+</body>
+</html>

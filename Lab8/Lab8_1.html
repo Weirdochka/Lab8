@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Хазиахметов Дамир Задание 1</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <form>
+        <p>Среднее арифметическое</p>
+        <p id="1"><input type="text" placeholder="Первая цифра" /></p>
+        <p id="2"><input type="text" placeholder="Вторая цифра" /></p>
+        <p id="3"><input type="text" placeholder="Третья цифра" /></p>
+        <p id="4"><input type="text" placeholder="Результат" /></p>
+        <p id="5"><input type="button" value="Вычислить" onclick="podchet()" /></p>
+        
+
+
+        <div id="modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center;">
+            <div style="background-color: white; padding: 15px;">
+                <h2>Введите число!</h2>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal()">OK</button>
+            </div>
+        </div>
+
+
+        <div id="modal2" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center;">
+            <div style="background-color: white; padding: 15px;">
+                <h2>Введите число!</h2>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal()">OK</button>
+            </div>
+        </div>
+
+
+    </form>
+    <script>
+        function podchet() {
+            var a = document.getElementById('1').getElementsByTagName('input')[0].value;
+            var a1 = parseFloat(a);
+            var b = document.getElementById('2').getElementsByTagName('input')[0].value;
+            var b1 = parseFloat(b);
+            var c = document.getElementById('3').getElementsByTagName('input')[0].value;
+            var c1 = parseFloat(c);
+
+            function openModal() {
+                document.getElementById("modal").style.display = "block";
+            }
+            function openModal2() {
+                document.getElementById("modal2").style.display = "block";
+            }
+            if ((a == null || a == "") || (b == null || b == "") || (c == null || c == "")) {
+                openModal();
+                return false;
+            }
+            if (isNaN(a || b || c)) {
+                openModal2();
+                return false;
+            }
+            var link = document.getElementById('4').getElementsByTagName('input');
+            var rez = a1 + b1 + c1
+
+             link[0].value = rez / 3;
+        }
+    </script>
+</body>
+</html>
